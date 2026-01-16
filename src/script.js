@@ -7,14 +7,14 @@ function updateWeather(response) {
     let timeElement = document.querySelector("#time");
     let date = new Date(response.data.time * 1000);
     let iconElement = document.querySelector("#icon");
-    iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" alt="Broken Clouds"     class="weather-app-icon"/>`
-
+    
     cityElement.innerHTML = response.data.city;
     temperatureElement.innerHTML = Math.round(response.data.temperature.current);
     descriptionElement.innerHTML = response.data.condition.description;
     humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
     windSpeedElement.innerHTML = `${response.data.wind.speed}km/h`;
     timeElement.innerHTML = formatDate(date);    
+    iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-app-icon"/>`
 }
 
 function formatDate(date) {
@@ -47,3 +47,5 @@ function handleSearchSubmit(event){
 
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
+let defaultCity = document.querySelector("#city").innerHTML;
+searchCity(defaultCity);
