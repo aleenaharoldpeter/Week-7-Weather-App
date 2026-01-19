@@ -33,6 +33,8 @@ function formatDate(date) {
 }
 
 function searchCity(city) {
+    // ⚠️ Note: In production, API keys should be stored on a backend server to keep them secret.
+    // For this assignment, using the key in frontend is fine as per workshop instructions.
     let apiKey = "5037o6a07f1bdbdcf547b34731aft69a";
     let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`
     console.log(apiUrl);
